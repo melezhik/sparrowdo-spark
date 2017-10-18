@@ -1,10 +1,16 @@
-# Instal Spark cluster with Docker and Sparrowdo
+# Synopsis
 
-
+Instal Spark cluster with Docker and Sparrowdo
 
 # Caveat
 
 CentOS is a only supported platform for the moment.
+
+# Install
+
+    $ zef install Sparrowdo Sparrowo::RemoteFile Sparrowdo:Archive
+    $ git clone https://github.com/melezhik/sparrowdo-spark.git
+    $ cd sparrowdo-spark # all the following commands will be run from here
 
 # Usage
 

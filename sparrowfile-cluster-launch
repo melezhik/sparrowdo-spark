@@ -1,3 +1,5 @@
+bash "truncate -s0 "
 for config<workers> -> $w {
-  say $w
+  bash "echo $w"
 }
+
