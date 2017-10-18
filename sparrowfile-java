@@ -1,0 +1,21 @@
+package-install "wget";
+
+module_run 'RemoteFile', %(
+  url       => 'http://download.oracle.com/otn-pub/java/jdk/8u151-b12/e758a0de34e24606bca991d704f6dcbf/jre-8u151-linux-x64.rpm',
+  location  => '/tmp/jre.rpm',
+  headers => (
+    "Cookie: oraclelicense=accept-securebackup-cookie"
+  )
+);
+
+bash q:to/HERE/, %(description => "install jre1.8");
+
+set -e
+
+if rpm -q jre1.8 2>/dev/null; then
+  echo jre1.8 already installed
+else
+  rpm -Uvh /tmp/jre.rpm
+fi
+
+HERE
