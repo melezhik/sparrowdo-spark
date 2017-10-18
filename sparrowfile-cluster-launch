@@ -4,5 +4,30 @@ for config<workers> -> $w {
   bash "echo $w >> /var/data/spark/spark-2.2.0-bin-hadoop2.7/conf/slaves", %(
     description => "add $w to conf/slaves"
   );
+
+  # check if we have ssh passwordless connect
+  #ssh 'ls -l', %(
+  #  host    => "$w",
+  #  user    => "spark",
+  #  ssh-key => "/home/spark/.ssh/id_rsa",
+  #);
 }
+
+bash "chown spark:spark /var/data/spark/spark-2.2.0-bin-hadoop2.7/conf/slaves";
+
+bash "cd /var/data/spark/spark-2.2.0-bin-hadoop2.7/ && ./sbin/stop-all.sh", %(
+  user => "spark",
+  envvars => %(
+    SPARK_MASTER_HOST => config<master>,
+  ),
+  desciption => "stop master and slaves"
+);
+
+bash "cd /var/data/spark/spark-2.2.0-bin-hadoop2.7/ && ./sbin/start-all.sh", %(
+  user => "spark",
+  envvars => %(
+    SPARK_MASTER_HOST => config<master>,
+  ),
+  desciption => "start master and slaves"
+);
 

@@ -60,10 +60,11 @@ so that master found its new slaves.
     $ nano config.pl6
 
     {
+      master => '172.18.0.2',
       workers => (
-        '172.18.0.3',
         '172.18.0.4',
-        '172.18.0.5'
+        '172.18.0.5',
+        '172.18.0.6'
       )
     }
 
