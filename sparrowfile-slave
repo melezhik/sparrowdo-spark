@@ -2,16 +2,7 @@ EVALFILE "sparrowfile-install-spark";
 
 package-install "openssh-server";
 
-if target_os() ~~ m/ubuntu/ or target_os() ~~ m/debian/ {
-
-  package-install "software-properties-common";
-
-  bash 'add-apt-repository "deb http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main"';
-
-  bash 'apt-get update';
-  
-  package-install 'oracle-java8-installer';
-}
+package-install "systemd";
 
 service-start "ssh";
 

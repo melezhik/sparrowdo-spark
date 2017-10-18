@@ -1,5 +1,9 @@
 # Instal Spark cluster with Docker and Sparrowdo
 
+# Caveat
+
+CentOS is only supported platform for the moment.
+
 # Usage
 
 
