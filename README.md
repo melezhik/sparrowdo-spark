@@ -1,10 +1,10 @@
 # Synopsis
 
-Instal Spark cluster with Docker and Sparrowdo
+Instal Spark cluster with Docker and Sparrowdo and CentOS.
 
 # Caveat
 
-CentOS is a only supported platform for the moment.
+CentOS is a only supported platform for the moment. Tested against [official CentOS Docker image](https://hub.docker.com/_/centos/).
 
 # Install
 
