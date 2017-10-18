@@ -32,7 +32,8 @@ Deploy Spark master on running container:
 
 Run Docker container for slave:
 
-    $ docker run --entrypoint  init --net spark-net --ip 172.18.0.4 -t -d --name worker1 centos
+    $ docker run --privileged --entrypoint  init  -v /sys/fs/cgroup:/sys/fs/cgroup:ro \
+      --net spark-net --ip 172.18.0.4 -t -d --name worker1 centos
 
 Deploy Spark slave on running container:
 
@@ -49,6 +50,17 @@ And so on, launch as many slaves as you wish.
 
 Once you've created a master and some slaves, you need to run [cluster launch script](https://spark.apache.org/docs/latest/spark-standalone.html#cluster-launch-scripts)
 so that master found its new slaves.
+
+    $ nano config.pl6
+
+    {
+      workers => (
+        '172.18.0.3',
+        '172.18.0.4',
+        '172.18.0.5'
+      )
+    }
+
 
     $ sparrowdo \
     --docker=master \
