@@ -1,4 +1,4 @@
-shell "docker cp master:/home/spark/.ssh/id_rsa.pub /tmp/'
+shell "docker cp master:/home/spark/.ssh/id_rsa.pub /tmp/";
 
 EVALFILE "sparrowfile-install-spark";
 
