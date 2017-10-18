@@ -1,5 +1,8 @@
-bash "truncate -s0 "
+bash "truncate -s0 /var/data/spark/spark-2.2.0-bin-hadoop2.7/conf/slaves";
+
 for config<workers> -> $w {
-  bash "echo $w"
+  bash "echo $w >> /var/data/spark/spark-2.2.0-bin-hadoop2.7/conf/slaves", %(
+    description => "add $w to conf/slaves"
+  );
 }
 
