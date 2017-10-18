@@ -1,0 +1,23 @@
+EVALFILE "sparrowfile-install-spark";
+
+package-install "openssh-client";
+
+directory "/home/spark/.ssh", %(
+  mode  => 700,
+  owner => "spark",
+  group => "spark"
+);
+
+bash q:to/HERE/, %(description => "generate ssh key",  user => "spark");
+
+set -e
+
+if test -f ~/.ssh/id_rsa; then
+  echo ~/.ssh/id_rsa exists
+else
+  ssh-keygen -t rsa
+fi
+
+HERE
+
+
