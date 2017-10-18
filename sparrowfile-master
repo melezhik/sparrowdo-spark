@@ -1,16 +1,29 @@
+if target_os() ~~ m/ubuntu/ or target_os() ~~ m/debian/ {
+  package-install "default-jre"
+} else {
+  package-install "java"
+}
+
+user "spark";
+
 my $distro-url = "https://d3kbcqa49mib13.cloudfront.net/spark-2.2.0-bin-hadoop2.7.tgz";
 
-directory '/var/data/spark';
+directory '/var/data/spark', %(
+  owner => 'spark'
+);
 
 module_run 'RemoteFile', %(
   url       => $distro-url,
-  location  => '/var/data/spark/spark.tar.gz'
+  location  => '/var/data/spark/spark.tar.gz',
 );
 
 module_run 'Archive', %(
  source  => '/var/data/spark/spark.tar.gz',
  target  => '/var/data/spark/',
+ user => 'spark' 
 );
 
 
 bash "ls -l /var/data/spark/spark-2.2.0-bin-hadoop2.7";
+
+# SPARK_SSH_OPTS

@@ -1,0 +1,3 @@
+package-install "openssh-server";
+
+service-start "ssh";
