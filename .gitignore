@@ -1,0 +1,4 @@
+lib/.precomp/
+.precomp
+*.tar.gz
+Sparrowdo-Spark-*
