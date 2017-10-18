@@ -76,7 +76,7 @@ so that master found its new slaves.
     --format=production --bootstrap
 
 
-And finally visit Spark web UI to check that slaves get run successfully:
+Wait for awhile, let Spark do its job and then visit Spark web UI to check that both master and slaves get run successfully:
 
     $ firefox 172.18.0.2:8080
 
