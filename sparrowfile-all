@@ -24,6 +24,3 @@ module_run 'Archive', %(
 );
 
 
-bash "ls -l /var/data/spark/spark-2.2.0-bin-hadoop2.7";
-
-# SPARK_SSH_OPTS

@@ -17,3 +17,5 @@ file '/home/spark/.ssh/authorized_keys', %(
   content => ( slurp 'id_rsa.pub' )
 );
 
+
+EVALFILE "sparrowfile-all";
