@@ -1,3 +1,19 @@
 package-install "openssh-server";
 
 service-start "ssh";
+
+user "spark";
+
+directory "/home/spark/.ssh", %(
+  mode  => 700,
+  owner => "spark",
+  group => "spark"
+);
+
+file '/home/spark/.ssh/authorized_keys', %(
+  owner   => "spark",
+  group   => "spark",
+  mode    => 640,
+  content => ( slurp 'id_rsa.pub' )
+);
+
