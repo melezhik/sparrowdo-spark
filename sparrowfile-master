@@ -1,6 +1,6 @@
 EVALFILE "sparrowfile-install-spark";
 
-package-install "openssh-client";
+package-install "openssh-clients";
 
 directory "/home/spark/.ssh", %(
   mode  => 700,

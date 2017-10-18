@@ -1,3 +1,5 @@
+shell "docker cp master:/home/spark/.ssh/id_rsa.pub /tmp/'
+
 EVALFILE "sparrowfile-install-spark";
 
 package-install "openssh-server";
@@ -16,7 +18,7 @@ file '/home/spark/.ssh/authorized_keys', %(
   owner   => "spark",
   group   => "spark",
   mode    => 640,
-  content => ( slurp 'id_rsa.pub' )
+  content => ( slurp '/tmp/id_rsa.pub' )
 );
 
 
