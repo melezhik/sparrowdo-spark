@@ -4,7 +4,7 @@
 
 # Caveat
 
-CentOS is only supported platform for the moment.
+CentOS is a only supported platform for the moment.
 
 # Usage
 
@@ -12,7 +12,7 @@ CentOS is only supported platform for the moment.
 
 First of all you should create a dedicated network for all Spark instances:
 
-   $ docker network create --subnet=172.18.0.0/16 spark-net
+    $ docker network create --subnet=172.18.0.0/16 spark-net
 
 
 ## Install master
