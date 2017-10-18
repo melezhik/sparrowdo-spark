@@ -15,7 +15,7 @@ set -e
 if test -f ~/.ssh/id_rsa; then
   echo ~/.ssh/id_rsa exists
 else
-  ssh-keygen -t rsa
+  ssh-keygen -t rsa -N ''
 fi
 
 HERE
