@@ -22,7 +22,7 @@ First of all you should create a dedicated network for all Spark instances:
 
 ## Install master
 
-Run Docker container for master. You should call docker images master, it is obligatory:
+Run Docker container for master. You should call Spark master container as `master`, it is obligatory:
 
     $ docker run --entrypoint init --net spark-net --ip 172.18.0.2 -t -d --name master centos
 
