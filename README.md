@@ -18,10 +18,7 @@ First of all you should create a dedicated network for all Spark instances:
 
 Run Docker container for master. You should call docker images master, it is obligatory:
 
-    $ docker run --privileged --entrypoint  init  \
-    -v /sys/fs/cgroup:/sys/fs/cgroup:ro --net spark-net \
-    --ip 172.18.0.2 \
-    -t -d  centos --name master
+    $ docker run --entrypoint init --net spark-net --ip 172.18.0.2 -t -d centos --name master
 
 Deploy Spark master on running container:
 
@@ -35,10 +32,7 @@ Deploy Spark master on running container:
 
 Run Docker container for slave:
 
-    $ docker run --privileged --entrypoint  init  \
-    -v /sys/fs/cgroup:/sys/fs/cgroup:ro --net spark-net \
-    --ip 172.18.0.4 \
-    -p 2222:22 -t -d  centos --name worker1
+    $ docker run --entrypoint  init --net spark-net --ip 172.18.0.4 -t -d --name worker1 centos
 
 Deploy Spark slave on running container:
 
