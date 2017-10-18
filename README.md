@@ -24,7 +24,7 @@ First of all you should create a dedicated network for all Spark instances:
 
 Run Docker container for master. You should call docker images master, it is obligatory:
 
-    $ docker run --entrypoint init --net spark-net --ip 172.18.0.2 -t -d centos --name master
+    $ docker run --entrypoint init --net spark-net --ip 172.18.0.2 -t -d --name master centos
 
 Deploy Spark master on running container:
 
@@ -75,6 +75,10 @@ so that master found its new slaves.
     --sparrowfile=sparrowfile-cluster-launch \
     --format=production --bootstrap
 
+
+And finally visit Spark web UI to check that slaves get run successfully:
+
+    $ firefox 172.18.0.2:8080
 
 # See also
 
