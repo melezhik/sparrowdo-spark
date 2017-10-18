@@ -2,9 +2,7 @@ EVALFILE "sparrowfile-install-spark";
 
 package-install "openssh-server";
 
-package-install "systemd";
-
-service-start "ssh";
+service-start "sshd";
 
 user "spark";
 
