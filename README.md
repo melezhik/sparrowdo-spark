@@ -1,2 +1,2 @@
-# Simple spark installer
+# Simple Spark Installer
 
