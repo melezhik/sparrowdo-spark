@@ -1,3 +1,5 @@
+EVALFILE "sparrowfile-install-spark";
+
 package-install "openssh-server";
 
 if target_os() ~~ m/ubuntu/ or target_os() ~~ m/debian/ {
@@ -29,6 +31,5 @@ file '/home/spark/.ssh/authorized_keys', %(
 );
 
 
-EVALFILE "sparrowfile-all";
 
 

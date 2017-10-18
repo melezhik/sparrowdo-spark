@@ -1,3 +1,5 @@
+EVALFILE "sparrowfile-install-java";
+
 if target_os() ~~ m/ubuntu/ or target_os() ~~ m/debian/ {
   package-install "default-jre"
 } else {
